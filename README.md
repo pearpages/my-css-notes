@@ -243,8 +243,34 @@ $gutter: 2%;
 
 ### Control Directives
 
++ if
++ for
++ each
++ while
+
+```sass
+$brown: #86461E;
+
+@for $i from 1 through 6 {
+    $howmuch: $i*10%;
+    .shade#{$i} {background-color: lighten($brown,$howmuch); }
+}
+```
+
+Result in css
+
+```css
+.shade1{background-color: #b05c27;}
+.shade2{background-color: #d27338;}
+.shade3{background-color: #dc9061;}
+.shade4{background-color: #e5ae8b;}
+.shade5{background-color: #eecbb5;}
+.shade6{background-color: #f8e8de;}
+```
 
 ## Setting up a project
+
+
 
 ## Example
 
