@@ -175,7 +175,71 @@ $orange: #ecbc4d;
 
 ### Extend or Inheritance
 
+Extend
+
+```sass
+.foo1 {
+    padding: .25em;
+    border: 1px solid #5c519d;
+    color: red;
+}
+
+.foo2 {
+    @extend .foo1;
+    color: green;
+}
+```
+
+Renders to
+
+```sass
+.foo1, foo2 {
+    padding: .25em;
+    border: 1px solid #5c519d;
+    color: red;
+}
+
+.foo2 {
+    color: green;    
+}
+```
+
+A good practice is to put the common together with **%**, which prevens it to be rendered in the css file
+
+```sass
+%common {
+    padding: .25em;
+    border: 1px solid #5c519d;
+}
+
+.foo1 {
+    @extend %common;
+    color: red;
+}
+
+.foo2 {
+    @extend %common;
+    color: green;
+}
+```
+
 ### Math Oeprations
+
+```sass
+.width3 {
+    width: 3 / 12 * 100%;
+}
+```
+
+```sass
+$gutter: 2%;
+
+.graphic4{
+    width: (4/12*100%) - $gutter;
+    float: right;
+    margin-left: $gutter;
+}
+```
 
 ### Control Directives
 
