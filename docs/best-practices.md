@@ -3,6 +3,7 @@
 * File Organization
 * Import Strategies
 * Naming Conventions
+* Nesting and Looping
 
 ---
 
@@ -70,3 +71,24 @@ The best place to start is with a globals sheet containing imports, variables an
 - use comments to explain CSS operations
 
 When organizing your variables and mixins it’s recommended to split them up by category, then list them in alphabetical order. This makes editing a whole lot easier because you know exactly where to find something.
+
+--- 
+
+## Nesting and Looping
+
++ Never go more than 3 levels deep.
++ Ensure the CSS output is clean and reusable.
++ Use nesting when it makes sense, not as a default option.
+
+Loops should not be used to duplicate selectors or properties for a selector; that’s what mixins are for.
+
+```css
+/* Sass code */
+@for $i from 1 through 8 {
+    $width: percentage(1 / $i)
+ 
+    .col-#{$i} {
+        width: $width;
+    }
+}
+```
