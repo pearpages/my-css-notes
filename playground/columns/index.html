@@ -1,0 +1,118 @@
+<html>
+
+<style>
+  label {
+    display: inline-block;
+    width: 125px;
+  }
+
+  label span {
+    display: inline-block;
+    width: 20px;
+    text-align: right;
+  }
+
+  #lorem {
+    column-rule: 1px solid #bbb;
+  }
+</style>
+<form>
+  <fieldset>
+    <div>
+      <label>column-count:
+        <span id="countLabel"></span>
+      </label>
+      <input value="1" id="count" type="range" min="1" max="10">
+    </div>
+    <div>
+      <label>column-width:
+        <span id="widthLabel"></span>
+      </label>
+      <input value="1" id="width" type="range" min="1" max="10">
+    </div>
+    <div>
+      <div>
+        <label>column-gap:
+          <span id="gapLabel"></span>
+        </label>
+        <input value="1" id="gap" type="range" min="1" max="10">
+      </div>
+      <div>
+        <label>column-rule:</label>
+        <input readonly value="1px solid #bbb" type="text">
+      </div>
+  </fieldset>
+</form>
+
+<hr>
+
+<div id="lorem">
+  Eu commodo id veniam Lorem qui in in quis proident excepteur incididunt dolore enim ut. Nulla proident occaecat dolore do
+  ea dolor labore sit incididunt anim. Consectetur sint mollit cupidatat ad ex commodo cillum veniam id commodo qui ad dolor
+  incididunt. Excepteur mollit in elit eiusmod minim. Fugiat exercitation amet esse exercitation do ad incididunt eu dolore
+  veniam dolor eiusmod. Eu excepteur cillum consectetur duis in. Reprehenderit adipisicing aliqua sunt esse nostrud tempor
+  mollit laborum. Quis eu adipisicing nulla labore exercitation nisi culpa. Ea ullamco deserunt proident eu adipisicing esse
+  laboris. Reprehenderit non excepteur laboris cupidatat et ipsum magna quis labore. Laboris in et reprehenderit nisi officia
+  magna labore excepteur do. Culpa cillum nostrud cupidatat non. Non excepteur dolore in exercitation id laborum id laborum
+  cillum est. Do consectetur incididunt consequat exercitation occaecat anim anim occaecat laborum anim reprehenderit. Fugiat
+  officia occaecat culpa adipisicing et do mollit. Nulla officia consequat eu do officia eu. Et occaecat sint esse eiusmod
+  mollit tempor tempor culpa dolor. Consectetur qui ullamco Lorem elit ad aliquip incididunt commodo qui elit. Lorem sit
+  enim commodo aute pariatur nisi nulla dolor magna irure commodo velit culpa adipisicing. Amet deserunt aliquip proident
+  culpa veniam mollit amet nostrud ullamco. Minim qui ipsum commodo quis occaecat adipisicing nulla quis culpa. Dolor cillum
+  nostrud aute nostrud eu exercitation fugiat. Est proident dolor irure veniam ipsum ad id minim. Occaecat Lorem esse sint
+  magna ipsum. Esse ea fugiat veniam nisi labore cillum quis proident aliquip et mollit quis. Sunt pariatur dolor ea sunt.
+  Ex ullamco ea irure aliqua voluptate ipsum mollit minim Lorem. Non qui id consectetur irure proident. Veniam nostrud ullamco
+  Lorem aliquip ipsum sunt incididunt voluptate aute ex minim. Fugiat eu exercitation occaecat Lorem nisi minim fugiat laborum
+  sint culpa. Sunt consequat ea quis cupidatat excepteur voluptate officia sint ea ullamco minim labore adipisicing sint.
+  Dolore non sint consectetur tempor dolore. Sint deserunt esse amet voluptate amet incididunt incididunt enim. Aliquip non
+  ad aliquip occaecat. Aute amet dolor magna ullamco proident excepteur excepteur excepteur adipisicing. Fugiat adipisicing
+  duis officia qui commodo do nostrud laboris.
+</div>
+
+<script>
+  function jsUcfirst(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  function attribute(name) {
+    return 'column' + jsUcfirst(name);
+  }
+  function element(id) {
+    return document.getElementById(id);
+  }
+  function finalValue(name, element) {
+    return name != 'count' ? element.value + 'em' : element.value;
+  }
+  function update(event) {
+    const id = event.target.id;
+    const value = finalValue(id, event.target);
+
+    element(id + 'Label').innerHTML = value;
+
+    lorem.style[attribute(event.target.id)] = value;
+  }
+  function init() {
+    const styles = [
+      'columnCount',
+      'columnWidth',
+      'columnGap'
+    ];
+    const lorem = element('lorem');
+    const inputs = Array.from(document.getElementsByTagName('input'))
+      .filter(input => input.type == 'range');
+
+    inputs
+      .map(input => {
+        element(input.id + 'Label').innerHTML = finalValue(input.id, input);
+        styles.forEach(style => {
+          lorem.style[attribute(input.id)] = finalValue(input.id, input);
+        });
+        return input;
+      })
+      .forEach(input => input.onchange = update);
+  }
+
+  init();
+
+</script>
+
+</html>
