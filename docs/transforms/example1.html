@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <style>
+      #rsvp {
+        border: 1px solid red;
+        padding: 20px;
+        font-size: 24px;
+        width: 100px;
+        text-align: center;
+        background-color: #EEE;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="rsvp">
+      RSVP
+    </div>
+
+    <form id="form">
+      <fieldset submit>
+        <legend>Translate</legend>
+        <div><label>translate X</label><input value="0" name="translateX" type="range" min="-1000" max="1000"></div>
+        <div><label>translate Y</label><input value="0" name="translateY" type="range" min="-1000" max="1000"></div>
+        <button type="button" onclick="resetValues(event, 'translate')">RESET</button>
+      </fieldset>
+      <fieldset>
+        <legend>Rotate</legend>
+        <div><label>rotate</label><input value="0" name="rotate" type="range" min="0" max="360"></div>
+        <button type="button" onclick="resetValues(event, 'rotate')">RESET</button>
+      </fieldset>
+      <fieldset>
+        <legend>Skew</legend>
+        <div><label>skew X</label><input value="0" name="skewX" type="range" min="0" max="360"></div>
+        <div><label>skew Y</label><input value="0" name="skewY" type="range" min="0" max="360"></div>
+        <button type="button" onclick="resetValues(event, 'skew')">RESET</button>
+      </fieldset>
+    </form>
+    <pre id="transform"></pre>
+<hr>
+
+    <h3>Example</h3>
+
+    <pre>
+        #rsvp {
+          border: 1px solid red;
+          padding: 20px;
+          font-size: 24px;
+          width: 100px;
+          text-align: center;
+          background-color: #EEE;
+          margin: auto;
+          transform: translate(-90px, 300px) rotate(50deg) scale(.7, .9) skew(15deg, 15deg)
+        }
+    </pre>
+
+    <hr>
+
+    <script>
+        const rsvp = document.getElementById('rsvp');
+        const transform = document.getElementById('transform');
+        const translateX = document.querySelector('[name=translateX]');
+        const translateY = document.querySelector('[name=translateY]');
+        const rotate = document.querySelector('[name=rotate]');
+        const skewX = document.querySelector('[name=skewX]');
+        const skewY = document.querySelector('[name=skewY]');
+
+        function resetValues(event, type) {
+          switch(type) {
+            case 'translate':
+              translateX.value = translateY.value = 0;
+              break;
+            case 'rotate':
+              rotate.value = 0;
+              break;
+            case 'skew':
+              skewX.value = skewY.value = 0;
+              break;
+          }
+          transformObject();
+        }
+  
+        function transformObject() {
+          let res = '';
+          if (translateX.value != 0 || translateY.value != 0) {
+            res += `translate(${translateX.value|| 0}px, ${translateY.value || 0}px)`
+          }
+          if (rotate.value > 0) {
+            res += ` rotate(${rotate.value|| 0}deg)`;
+          }
+          if (skewX.value > 0 || skewY.value > 0) {
+            res += ` skew(${skewX.value || 0}deg, ${skewY.value || 0}deg)`
+          }
+          rsvp.style.transform = res;
+          transform.innerHTML = res;
+        }
+        document.getElementById('form').onchange = transformObject;
+      </script>
+  </body>
+</html>
