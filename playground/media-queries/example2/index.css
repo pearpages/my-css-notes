@@ -1,0 +1,22 @@
+.max-width-550,
+.min-width-551 {
+  display: none;
+}
+
+@media (max-width: 550px) {
+  :root {
+    background-color: blue;
+  }
+  .max-width-550 {
+    display: block;
+  }
+}
+
+@media (min-width: 551px) {
+  :root {
+    background-color: green;
+  }
+  .min-width-551 {
+    display: block;
+  }
+}
