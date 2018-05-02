@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <style>
+      label {
+        font-size: 24px;
+      }
+      input {
+        width: 60px;
+        height: 50px;
+        font-size: 24px;
+      }
+      input:valid {
+        background-color: green;
+      }
+      input:invalid {
+        background-color: red;
+        transition: 3s steps(5, end);
+      }
+      input:focus {
+        background-color: yellow;
+        transition: 2s linear;
+      }
+    </style>
+  </head>
+  <body>
+    <div><label>Example: </label><input type="number" min="0" max="10" step="2" /></div>
+  </body>
+</html>
