@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <style>
+      @keyframes pencil {
+        from, 30% { background-color: #030; }
+        to { background-color: #393; }
+      }
+      @keyframes moving-left {
+        from { left: 0 }
+        to {left: 100% }
+      }
+      @keyframes moving-right {
+        0% { right: 0 }
+        100% { right: 100% }
+      }
+      #lipsum {
+        width: 500px;
+        padding: 20px;
+        margin: auto;
+        animation: pencil infinite 3s alternate;
+      }
+      .ball {
+        position: absolute;
+        background: black;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+      }
+      .ball--left {
+        animation: moving-left infinite 3s;
+      }
+      .ball--right {
+        right: 0;
+        animation: moving-right infinite 3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="lipsum">
+      Do est fugiat enim duis est incididunt eu sint excepteur excepteur. Ullamco laborum anim tempor cupidatat id ipsum voluptate enim non officia fugiat Lorem esse. Ullamco et consequat aute elit. Aliqua ipsum ut exercitation ad.
+    </div>
+
+    <div class="ball ball--left"></div>
+
+    <div class="ball ball--right"></div>
+
+  </body>
+</html>
