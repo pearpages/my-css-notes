@@ -1,0 +1,81 @@
+<html>
+
+<head>
+  <style>
+    * {
+      font-size: 16px !important;
+    }
+    nav,
+    li {
+      background-color: lightblue;
+      color: white;
+    }
+
+    ul, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      border: 1px solid white;
+      width: 100px;
+    }
+
+    nav ul li {
+      list-style-type: none;
+    }
+
+    nav>ul>li {
+      display: inline-block;
+      position: relative;
+    }
+    nav ul ul {
+      transform: scale(1, 0);
+      transform-origin: top center;
+      transition: transform 0.2s ease-in 50ms;
+      position: absolute;
+      top: 100%;
+    }
+
+    nav li:hover ul {
+      transform: scale(1, 1);
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li>hello
+        <ul>
+          <li>def</li>
+          <li>ghi</li>
+          <li>jkl</li>
+        </ul>
+      </li>
+      <li>there
+        <ul>
+          <li>def</li>
+          <li>ghi</li>
+          <li>jkl</li>
+        </ul>
+      </li>
+      <li>bye
+        <ul>
+          <li>def</li>
+          <li>ghi</li>
+          <li>jkl</li>
+        </ul>
+      </li>
+      <li>abc
+        <ul>
+          <li>def</li>
+          <li>ghi</li>
+          <li>jkl</li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</body>
+
+</html>
