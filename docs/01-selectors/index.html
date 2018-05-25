@@ -1,0 +1,100 @@
+<html>
+
+<head>
+  <title>Selectors</title>
+</head>
+
+<body>
+  <div class="topic">
+    <h2>Selector</h2>
+    <div class="section">
+      <h3>
+        <CSS 1/h3>
+          <ul>
+            <li>E</li>
+            <li>E F</li>
+            <li>.class</li>
+            <li>#ID</li>
+            <li>:link</li>
+            <li>:active</li>
+          </ul>
+    </div>
+
+    <div class="section">
+      <h3>
+        <CSS 2/h3>
+          <ul>
+            <li>*</li>
+            <li>E > F</li>
+            <li>E + F</li>
+            <li>E[attribute]</li>
+            <li>E[attribute=value]</li>
+            <li>E[attribute~=value]</li>
+            <li>E[attribute|=value]</li>
+            <li>:first-child</li>
+            <li>:lang(en)</li>
+            <li>:focus</li>
+            <li>:hover</li>
+            <li>:visited</li>
+            <li>:before</li>
+            <li>:after</li>
+            <li>:first-letter</li>
+            <li>:first-line</li>
+          </ul>
+    </div>
+
+    <div class="section">
+      <h3>CSS 2.1 "3"</h3>
+      <ul>
+        <li>::before</li>
+        <li>::after</li>
+        <li>::first-letter</li>
+        <li>::first-line</li>
+        <li>list goes on...</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>CSS"4"</h3>
+      <ul>
+        <li>E:enabled</li>
+        <li>E:disabled</li>
+        <li>E:checked</li>
+        <li>E:default</li>
+        <li>E:valid</li>
+        <li>E:invalid</li>
+        <li>list goes on...</li>
+      </ul>
+    </div>
+  </div>
+  <div class="topic">
+    <h2>Specifity</h2>
+    <div class="section">
+      <p>
+        <code>
+            var el = document.querySelector('#bar');
+    
+            var chil = el.querySelectorAll('.foo');
+    
+            chil = document.querySelectorAll('#bar .foo');
+
+            chil.classList.add('remove');
+            chil.classList.add('active');
+          </code>
+      </p>
+      <ul>
+        <li>1-0-0: ID selector</li>
+        <li>0-1-0: Class (also attribute slecotr and pseudoclass)</li>
+        <li>0-0-1: Element selector</li>
+        <li>* has no value</li>
+        <li>Combinators have no value</li>
+      </ul>
+    </div>
+    
+    <div class="section">
+      <h3>Attribute Selectors</h3>
+    </div>
+  </div>
+</body>
+
+</html>

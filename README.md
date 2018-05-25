@@ -2,7 +2,7 @@
 
 ### Resources
 
-* [https://estelle.github.io/](https://estelle.github.io/)
+* [https://estelle.github.io/](https://estelle.github.io/cssmastery/)
 
 ## Check also the branch SASS
 
